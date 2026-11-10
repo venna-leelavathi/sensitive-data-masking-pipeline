@@ -1,0 +1,27 @@
+# Pipeline configuration
+pipeline:
+  name: "sensitive_data_masking_pipeline"
+  version: "1.0.0"
+  batch_size: 10000
+  secret_salt: "antigravity-secure-salt-2026-v1"  # Used for deterministic HMAC tokenization
+  
+storage:
+  input_dir: "data/input"
+  output_dir: "data/output"
+  quarantine_dir: "data/quarantine"
+  audit_dir: "data/audit"
+  sqlite_db_path: "data/output/analytical_store.db"
+  publish_format: "parquet"  # Options: parquet, csv, sqlite, all
+
+validation:
+  strict_schema: true
+  allow_extra_columns: false
+  deduplicate_by_key: true
+  dedup_strategy: "latest_timestamp"  # Options: latest_timestamp, reject_all_duplicates
+  enforce_referential_integrity: true
+
+profiler:
+  sample_size: 1000
+  confidence_threshold: 0.70
+  auto_generate_rules: true
+

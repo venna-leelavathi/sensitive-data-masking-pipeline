@@ -1,0 +1,111 @@
+# Masking and minimization rules per entity and column
+# Supported strategies:
+#   - hmac_token: Deterministic keyed HMAC-SHA256 token (preserves joinability across datasets)
+#   - sha256_hash: Deterministic salted SHA-256 hash
+#   - partial_mask_email: j***e@domain.com
+#   - partial_mask_phone: ***-***-1234
+#   - partial_mask_card: ****-****-****-1234
+#   - redact_full: [REDACTED]
+#   - generalize_dob_to_age_group: 25-34
+#   - truncate_postal_code: 3-digit ZIP prefix (HIPAA k-anonymity)
+#   - drop: Field is completely omitted from analytical output (Minimization)
+#   - pass_through: Preserved unmodified
+
+customers:
+  customer_id:
+    strategy: "hmac_token"
+    target_column: "customer_token"
+    description: "Pseudonymized customer identifier preserving referential joins"
+  full_name:
+    strategy: "partial_mask_name"
+    target_column: "masked_name"
+    description: "Retains first initial and last initial"
+  email:
+    strategy: "partial_mask_email"
+    target_column: "masked_email"
+    description: "Retains first char and domain for marketing domain analytics"
+  phone_number:
+    strategy: "partial_mask_phone"
+    target_column: "masked_phone"
+    description: "Retains last 4 digits only"
+  ssn_or_tax_id:
+    strategy: "drop"
+    target_column: null
+    description: "Data minimization: Government direct identifier dropped entirely"
+  date_of_birth:
+    strategy: "generalize_dob_to_age_group"
+    target_column: "age_group"
+    description: "Age demographic bucket (e.g. 25-34) to eliminate exact birthday re-identification"
+  street_address:
+    strategy: "drop"
+    target_column: null
+    description: "Data minimization: Granular street address dropped"
+  city:
+    strategy: "pass_through"
+    target_column: "city"
+    description: "City level analytical aggregate"
+  state:
+    strategy: "pass_through"
+    target_column: "state"
+    description: "State level analytical aggregate"
+  postal_code:
+    strategy: "truncate_postal_code"
+    target_column: "postal_code_3"
+    description: "3-digit ZIP prefix compliant with HIPAA Safe Harbor standards"
+  country:
+    strategy: "pass_through"
+    target_column: "country"
+    description: "Country code"
+  registration_timestamp:
+    strategy: "pass_through"
+    target_column: "registration_timestamp"
+    description: "ISO-8601 registration timestamp"
+  risk_score:
+    strategy: "derive_risk_tier"
+    target_column: "risk_tier"
+    description: "Categorical tier (LOW, MEDIUM, HIGH) derived from numeric score"
+
+transactions:
+  transaction_id:
+    strategy: "pass_through"
+    target_column: "transaction_id"
+    description: "Analytical transaction identifier"
+  customer_id:
+    strategy: "hmac_token"
+    target_column: "customer_token"
+    description: "Pseudonymized foreign key joining with customers"
+  transaction_timestamp:
+    strategy: "derive_year_month"
+    target_column: "transaction_timestamp"
+    extra_derived:
+      - target_column: "transaction_year_month"
+        strategy: "extract_year_month"
+    description: "Timestamp and monthly cohort partition"
+  amount:
+    strategy: "pass_through"
+    target_column: "amount"
+    extra_derived:
+      - target_column: "amount_usd"
+        strategy: "normalize_usd"
+    description: "Original transaction amount and normalized USD value"
+  currency:
+    strategy: "pass_through"
+    target_column: "currency"
+    description: "ISO currency code"
+  card_number:
+    strategy: "partial_mask_card"
+    target_column: "masked_card_last4"
+    description: "PCI-DSS minimization: last 4 digits only, full PAN removed"
+  ip_address:
+    strategy: "mask_ip_subnet"
+    target_column: "ip_subnet"
+    description: "Class C /24 subnet mask to prevent endpoint tracking"
+  merchant_category:
+    strategy: "pass_through"
+    target_column: "merchant_category"
+    description: "Merchant classification"
+  status:
+    strategy: "pass_through"
+    target_column: "status"
+    description: "Transaction processing status"
+
