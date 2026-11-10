@@ -28,3 +28,4 @@ def test_hmac_caching_optimization():
     # Assert optimization is significantly faster
     speedup = uncached_duration / cached_duration if cached_duration > 0 else 1.0
     assert speedup > 1.5, f"Expected speedup > 1.5x, got {speedup:.2f}x"
+

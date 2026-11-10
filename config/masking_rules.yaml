@@ -108,3 +108,4 @@ transactions:
     strategy: "pass_through"
     target_column: "status"
     description: "Transaction processing status"
+

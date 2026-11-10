@@ -10,3 +10,4 @@ __all__ = [
     "generate_profile_report_markdown",
     "export_profile_report_json",
 ]
+

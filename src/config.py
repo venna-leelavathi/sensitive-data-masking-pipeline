@@ -76,3 +76,4 @@ def load_masking_config(config_path: str | Path = "config/masking_rules.yaml") -
     customers_rules = {k: MaskingRule.model_validate(v) for k, v in data.get("customers", {}).items()}
     transactions_rules = {k: MaskingRule.model_validate(v) for k, v in data.get("transactions", {}).items()}
     return MaskingConfig(customers=customers_rules, transactions=transactions_rules)
+

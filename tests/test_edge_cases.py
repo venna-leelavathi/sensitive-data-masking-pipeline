@@ -115,3 +115,4 @@ def test_edge_case_malformed_input_non_dict(test_app_config, test_masking_config
     assert len(valid_records) == 0
     assert summary.quarantined_count == 3
     assert quar_mgr.records[0].error_code == "MALFORMED_INPUT"
+

@@ -29,3 +29,4 @@ minversion = "7.0"
 addopts = "-ra -q --import-mode=importlib"
 testpaths = ["tests"]
 pythonpath = ["."]
+

@@ -104,3 +104,4 @@ def test_masking_engine_drops_unminimized_columns():
     assert "postal_code_3" in transformed_df.columns
     assert "risk_tier" in transformed_df.columns
     assert transformed_df["risk_tier"].iloc[0] == "LOW"
+

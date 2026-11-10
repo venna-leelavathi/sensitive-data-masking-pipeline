@@ -97,3 +97,4 @@ class QuarantineManager:
         df.to_parquet(parquet_path, index=False)
 
         return {"jsonl": jsonl_path, "parquet": parquet_path}
+

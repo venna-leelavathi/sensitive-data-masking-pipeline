@@ -57,3 +57,4 @@ def test_reconciliation_detects_referential_orphan():
     assert not res.all_passed
     orphan_check = next(c for c in res.checks if c.check_name == "Target Referential Integrity Invariant")
     assert not orphan_check.passed
+

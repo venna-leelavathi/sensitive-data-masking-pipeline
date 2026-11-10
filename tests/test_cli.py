@@ -48,3 +48,4 @@ def test_cli_generate_and_run(tmp_path: Path, monkeypatch):
     ]
     monkeypatch.setattr(sys, "argv", run_args)
     main()
+

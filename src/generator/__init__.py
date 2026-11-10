@@ -3,3 +3,4 @@
 from src.generator.synthetic_data import SyntheticDataGenerator, GenerationSpec
 
 __all__ = ["SyntheticDataGenerator", "GenerationSpec"]
+

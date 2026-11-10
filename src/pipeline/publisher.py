@@ -135,3 +135,4 @@ class TargetPublisher:
             conn.commit()
         finally:
             conn.close()
+

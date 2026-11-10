@@ -273,3 +273,4 @@ class SyntheticDataGenerator:
             json.dump(labels, f, indent=2)
 
         return {"customers": cust_file, "transactions": tx_file, "labels": lbl_file}
+

@@ -33,3 +33,4 @@ htmlcov/
 
 # Local databases / temp artifacts
 *.sqlite3-journal
+

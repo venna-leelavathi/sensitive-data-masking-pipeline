@@ -104,3 +104,4 @@ class AuditLedger:
             conn.close()
         except Exception:
             pass
+

@@ -175,3 +175,4 @@ erDiagram
 - **Deduplication Strategy**: When duplicate primary keys are encountered, the pipeline uses deterministic tie-breaking based on `updated_at` (or transaction timestamp). The fresher record is preserved.
 - **Atomic UPSERT**: Publishing to SQLite uses `INSERT OR REPLACE INTO` keyed by primary keys (`customer_token` and `transaction_id`).
 - **Parquet Idempotent Overwrite / Merge**: Target Parquet files undergo an idempotent merge: new batches overwrite older records with identical primary keys, guaranteeing that rerunning the exact same input batch produces identical record counts without phantom duplicate rows.
+

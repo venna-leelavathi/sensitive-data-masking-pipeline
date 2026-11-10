@@ -28,3 +28,4 @@ def sample_clean_data():
     spec = GenerationSpec(num_customers=20, num_transactions=60, anomaly_rate=0.0, seed=123)
     custs, txs, labels = gen.generate(spec)
     return custs, txs
+

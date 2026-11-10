@@ -215,3 +215,4 @@ class DataValidator:
             return "INVALID_DATA_TYPE", f"Type coercion failure on field '{loc}': {msg}"
         else:
             return "BUSINESS_RULE_VIOLATION", f"Business rule constraint failed on '{loc}': {msg}"
+

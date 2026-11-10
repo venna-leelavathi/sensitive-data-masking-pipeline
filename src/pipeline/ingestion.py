@@ -136,3 +136,4 @@ class DataIngestor:
     def _load_parquet(path: Path) -> List[Dict[str, Any]]:
         df = pd.read_parquet(path)
         return df.to_dict(orient="records")
+

@@ -87,3 +87,4 @@ def _cached_hmac_inner(val_str: str, salt: str) -> str:
 1. **Distributed Scale**: For multi-terabyte data streams exceeding single-node NVMe capacity, the validation and masking engine can be compiled into a PySpark UDF or Polars expression for multi-node worker clusters.
 2. **KMS / HSM Salt Rotation**: In production, the cryptographic salt should be retrieved dynamically from AWS KMS, Azure Key Vault, or HashiCorp Vault with an envelope encryption key rotation policy.
 3. **Differential Privacy**: For sensitive numerical aggregates (e.g. transaction amounts by small geographic clusters), adding Laplacian noise or differential privacy clipping can prevent reconstruction attacks.
+

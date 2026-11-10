@@ -153,3 +153,4 @@ def test_business_rules_negative_amount_and_invalid_currency():
     )
     assert len(valid_tx) == 0
     assert summary.quarantined_count == 2
+

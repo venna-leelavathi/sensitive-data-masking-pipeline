@@ -48,3 +48,4 @@ def test_markdown_report_generation():
     md = generate_profile_report_markdown(result)
     assert "# Sensitive Data Profiling Report: `test_report`" in md
     assert "PII_EMAIL" in md
+

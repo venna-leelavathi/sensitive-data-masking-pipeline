@@ -141,3 +141,4 @@ This document defines the schemas, data types, keys, nullability, referential re
 | `total_published_records` | Integer | Total records written to target store. |
 | `reconciliation_status` | String | `PASSED` or `FAILED`. |
 | `failure_reason` | String (Nullable) | Unhandled exception message if run failed. |
+

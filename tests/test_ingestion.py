@@ -55,3 +55,4 @@ def test_ingest_malformed_json_raises_value_error(tmp_path: Path):
     file_p.write_text("{broken json", encoding="utf-8")
     with pytest.raises(ValueError, match="Malformed JSON file"):
         DataIngestor.load_records(file_p)
+

@@ -24,3 +24,4 @@ profiler:
   sample_size: 1000
   confidence_threshold: 0.70
   auto_generate_rules: true
+
