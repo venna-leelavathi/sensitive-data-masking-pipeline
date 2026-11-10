@@ -1,0 +1,72 @@
+{
+  "run_id": "run_20261110_114140_746c6df9",
+  "pipeline_name": "sensitive_data_masking_pipeline",
+  "pipeline_version": "1.0.0",
+  "start_time": "2026-11-10T11:41:40.753435+00:00",
+  "end_time": "2026-11-10T11:41:47.907669+00:00",
+  "duration_seconds": 7.149,
+  "status": "PARTIAL_SUCCESS",
+  "total_input_records": 37,
+  "total_valid_records": 34,
+  "total_quarantined_records": 1,
+  "total_published_records": 34,
+  "entity_counts": {
+    "customers": {
+      "input": 11,
+      "valid": 10,
+      "quarantined": 0,
+      "deduplicated": 1,
+      "published": 10
+    },
+    "transactions": {
+      "input": 26,
+      "valid": 24,
+      "quarantined": 1,
+      "deduplicated": 1,
+      "published": 24
+    }
+  },
+  "quarantine_breakdown": {
+    "UNEXPECTED_COLUMN": 1
+  },
+  "masking_manifest": {
+    "customers": {
+      "customer_id": "hmac_token",
+      "full_name": "partial_mask_name",
+      "email": "partial_mask_email",
+      "phone_number": "partial_mask_phone",
+      "ssn_or_tax_id": "drop",
+      "date_of_birth": "generalize_dob_to_age_group",
+      "street_address": "drop",
+      "city": "pass_through",
+      "state": "pass_through",
+      "postal_code": "truncate_postal_code",
+      "country": "pass_through",
+      "registration_timestamp": "pass_through",
+      "risk_score": "derive_risk_tier"
+    },
+    "transactions": {
+      "transaction_id": "pass_through",
+      "customer_id": "hmac_token",
+      "transaction_timestamp": "derive_year_month",
+      "transaction_timestamp->transaction_year_month": "extract_year_month",
+      "amount": "pass_through",
+      "amount->amount_usd": "normalize_usd",
+      "currency": "pass_through",
+      "card_number": "partial_mask_card",
+      "ip_address": "mask_ip_subnet",
+      "merchant_category": "pass_through",
+      "status": "pass_through"
+    }
+  },
+  "source_checksums": {
+    "customers": "59f9c15fd63c91540abbb63ac1e0455d9b8c90abab72c00086e0b3a5d3cb9773",
+    "transactions": "6b35976fca1e4d6edf01869164d8610d098f4c735dc60cebfb509f156d8e0261"
+  },
+  "target_checksums": {
+    "customers_parquet": "d80a1e8295144e00df5768edcee0745fd651c4c90ceae3b79245b6fc90d71a0e",
+    "transactions_parquet": "2edb22fa7e443aecd1c9ca55fdb279ee158c418b3cc5c2ef1f6c742b42ce2474"
+  },
+  "reconciliation_status": "PASSED",
+  "failure_reason": null
+}
