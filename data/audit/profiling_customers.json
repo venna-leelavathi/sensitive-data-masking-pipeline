@@ -1,0 +1,276 @@
+{
+  "dataset_name": "customers",
+  "record_count": 101,
+  "sensitive_columns_count": 7,
+  "columns": {
+    "customer_id": {
+      "column_name": "customer_id",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "inferred_type": "str",
+      "detected_category": "IDENTIFIER_KEY",
+      "confidence": 0.85,
+      "sample_values": [
+        "CUST-000085",
+        "CUST-000056",
+        "CUST-000067"
+      ],
+      "sample_entropy": 2.651,
+      "recommended_strategy": "hmac_token",
+      "is_sensitive": true
+    },
+    "full_name": {
+      "column_name": "full_name",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "inferred_type": "str",
+      "detected_category": "PII_NAME",
+      "confidence": 0.903,
+      "sample_values": [
+        "Holly Valentine",
+        "Stephanie Byrd",
+        "Larry Garcia"
+      ],
+      "sample_entropy": 3.328,
+      "recommended_strategy": "partial_mask_name",
+      "is_sensitive": true
+    },
+    "email": {
+      "column_name": "email",
+      "total_records": 101,
+      "non_null_records": 100,
+      "null_percentage": 0.99,
+      "unique_count": 99,
+      "inferred_type": "str",
+      "detected_category": "PII_EMAIL",
+      "confidence": 1.0,
+      "sample_values": [
+        "cust-000084@gmail.com",
+        "cust-000054@hotmail.com",
+        "cust-000071@gmail.com"
+      ],
+      "sample_entropy": 3.74,
+      "recommended_strategy": "partial_mask_email",
+      "is_sensitive": true
+    },
+    "phone_number": {
+      "column_name": "phone_number",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "inferred_type": "str",
+      "detected_category": "PII_PHONE",
+      "confidence": 0.91,
+      "sample_values": [
+        "+1-898-384-3785",
+        "+1-993-695-8616",
+        "+1-618-661-8699"
+      ],
+      "sample_entropy": 2.994,
+      "recommended_strategy": "partial_mask_phone",
+      "is_sensitive": true
+    },
+    "ssn_or_tax_id": {
+      "column_name": "ssn_or_tax_id",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "inferred_type": "str",
+      "detected_category": "PII_SSN",
+      "confidence": 0.91,
+      "sample_values": [
+        "279-20-7267",
+        "546-85-5397",
+        "398-14-4792"
+      ],
+      "sample_entropy": 2.704,
+      "recommended_strategy": "drop",
+      "is_sensitive": true
+    },
+    "date_of_birth": {
+      "column_name": "date_of_birth",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "inferred_type": "str",
+      "detected_category": "PII_DOB",
+      "confidence": 0.91,
+      "sample_values": [
+        "1959-04-17",
+        "1967-10-26",
+        "1961-09-03"
+      ],
+      "sample_entropy": 2.586,
+      "recommended_strategy": "generalize_dob_to_age_group",
+      "is_sensitive": true
+    },
+    "street_address": {
+      "column_name": "street_address",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.245,
+      "sample_values": [
+        "6886 Lisa Unions Apt. 407",
+        "5946 Bryant Hollow",
+        "836 Beasley Loop"
+      ],
+      "sample_entropy": 3.838,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "city": {
+      "column_name": "city",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 101,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.36,
+      "sample_values": [
+        "Angelaville",
+        "South Melissa",
+        "Mariafurt"
+      ],
+      "sample_entropy": 3.149,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "state": {
+      "column_name": "state",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 48,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "VT",
+        "CT",
+        "MT"
+      ],
+      "sample_entropy": 1.0,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "postal_code": {
+      "column_name": "postal_code",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 99,
+      "inferred_type": "str",
+      "detected_category": "PII_POSTAL_CODE",
+      "confidence": 0.91,
+      "sample_values": [
+        "91226",
+        "52245",
+        "47762"
+      ],
+      "sample_entropy": 1.949,
+      "recommended_strategy": "truncate_postal_code",
+      "is_sensitive": true
+    },
+    "country": {
+      "column_name": "country",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 1,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "US",
+        "US",
+        "US"
+      ],
+      "sample_entropy": 1.0,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "registration_timestamp": {
+      "column_name": "registration_timestamp",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "2026-04-06T15:40:50+00:00",
+        "2026-05-14T23:40:56+00:00",
+        "2026-02-10T08:43:59+00:00"
+      ],
+      "sample_entropy": 3.026,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "risk_score": {
+      "column_name": "risk_score",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 95,
+      "inferred_type": "float64",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "0.421",
+        "0.878",
+        "0.191"
+      ],
+      "sample_entropy": 2.12,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "updated_at": {
+      "column_name": "updated_at",
+      "total_records": 101,
+      "non_null_records": 101,
+      "null_percentage": 0.0,
+      "unique_count": 101,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "2026-04-06T15:40:50+00:00",
+        "2026-05-14T23:40:56+00:00",
+        "2026-02-10T08:43:59+00:00"
+      ],
+      "sample_entropy": 3.018,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "unauthorized_injected_column": {
+      "column_name": "unauthorized_injected_column",
+      "total_records": 101,
+      "non_null_records": 2,
+      "null_percentage": 98.02,
+      "unique_count": 1,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "MALICIOUS_PAYLOAD",
+        "MALICIOUS_PAYLOAD"
+      ],
+      "sample_entropy": 3.455,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    }
+  }
+}

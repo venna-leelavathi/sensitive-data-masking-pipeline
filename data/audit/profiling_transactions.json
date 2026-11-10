@@ -1,0 +1,205 @@
+{
+  "dataset_name": "transactions",
+  "record_count": 501,
+  "sensitive_columns_count": 3,
+  "columns": {
+    "transaction_id": {
+      "column_name": "transaction_id",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 500,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "TXN-0000363",
+        "TXN-0000074",
+        "TXN-0000376"
+      ],
+      "sample_entropy": 2.555,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "customer_id": {
+      "column_name": "customer_id",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 98,
+      "inferred_type": "str",
+      "detected_category": "IDENTIFIER_KEY",
+      "confidence": 0.85,
+      "sample_values": [
+        "CUST-000080",
+        "CUST-000010",
+        "CUST-000025"
+      ],
+      "sample_entropy": 2.655,
+      "recommended_strategy": "hmac_token",
+      "is_sensitive": true
+    },
+    "transaction_timestamp": {
+      "column_name": "transaction_timestamp",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 500,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "2026-01-09T04:45:25+00:00",
+        "2026-05-28T05:00:47+00:00",
+        "2026-02-01T14:18:17+00:00"
+      ],
+      "sample_entropy": 3.05,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "amount": {
+      "column_name": "amount",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 486,
+      "inferred_type": "object",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "727.2",
+        "796.54",
+        "327.31"
+      ],
+      "sample_entropy": 2.287,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "currency": {
+      "column_name": "currency",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 4,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "CAD",
+        "CAD",
+        "EUR"
+      ],
+      "sample_entropy": 1.585,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "card_number": {
+      "column_name": "card_number",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 500,
+      "inferred_type": "str",
+      "detected_category": "PCI_CREDIT_CARD",
+      "confidence": 0.769,
+      "sample_values": [
+        "371072563669415",
+        "676210430069",
+        "379180172260161"
+      ],
+      "sample_entropy": 2.824,
+      "recommended_strategy": "partial_mask_card",
+      "is_sensitive": true
+    },
+    "ip_address": {
+      "column_name": "ip_address",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 500,
+      "inferred_type": "str",
+      "detected_category": "PII_IP_ADDRESS",
+      "confidence": 0.91,
+      "sample_values": [
+        "67.194.153.20",
+        "14.165.156.4",
+        "217.134.84.20"
+      ],
+      "sample_entropy": 2.675,
+      "recommended_strategy": "mask_ip_subnet",
+      "is_sensitive": true
+    },
+    "merchant_category": {
+      "column_name": "merchant_category",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 6,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "Retail",
+        "Travel",
+        "Entertainment"
+      ],
+      "sample_entropy": 2.62,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "status": {
+      "column_name": "status",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 4,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "REFUNDED",
+        "DECLINED",
+        "DECLINED"
+      ],
+      "sample_entropy": 2.444,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "updated_at": {
+      "column_name": "updated_at",
+      "total_records": 501,
+      "non_null_records": 501,
+      "null_percentage": 0.0,
+      "unique_count": 501,
+      "inferred_type": "str",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "2026-01-09T04:45:25+00:00",
+        "2026-05-28T05:00:47+00:00",
+        "2026-02-01T14:18:17+00:00"
+      ],
+      "sample_entropy": 3.049,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    },
+    "injection_probe": {
+      "column_name": "injection_probe",
+      "total_records": 501,
+      "non_null_records": 7,
+      "null_percentage": 98.6,
+      "unique_count": 1,
+      "inferred_type": "object",
+      "detected_category": "NON_SENSITIVE",
+      "confidence": 0.0,
+      "sample_values": [
+        "True",
+        "True",
+        "True"
+      ],
+      "sample_entropy": 2.0,
+      "recommended_strategy": "pass_through",
+      "is_sensitive": false
+    }
+  }
+}

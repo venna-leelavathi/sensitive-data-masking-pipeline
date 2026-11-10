@@ -1,0 +1,72 @@
+{
+  "run_id": "run_20261110_071053_5bcda400",
+  "pipeline_name": "sensitive_data_masking_pipeline",
+  "pipeline_version": "1.0.0",
+  "start_time": "2026-11-10T07:10:53.419906+00:00",
+  "end_time": "2026-11-10T07:10:56.378604+00:00",
+  "duration_seconds": 2.9631,
+  "status": "PARTIAL_SUCCESS",
+  "total_input_records": 1102,
+  "total_valid_records": 1087,
+  "total_quarantined_records": 13,
+  "total_published_records": 1087,
+  "entity_counts": {
+    "customers": {
+      "input": 101,
+      "valid": 99,
+      "quarantined": 1,
+      "deduplicated": 1,
+      "published": 99
+    },
+    "transactions": {
+      "input": 1001,
+      "valid": 988,
+      "quarantined": 12,
+      "deduplicated": 1,
+      "published": 988
+    }
+  },
+  "quarantine_breakdown": {
+    "INVALID_DATA_TYPE": 4,
+    "UNEXPECTED_COLUMN": 4,
+    "BUSINESS_RULE_VIOLATION": 3,
+    "INVALID_FOREIGN_KEY": 2
+  },
+  "masking_manifest": {
+    "customers": {
+      "customer_id": "hmac_token",
+      "full_name": "partial_mask_name",
+      "email": "partial_mask_email",
+      "phone_number": "partial_mask_phone",
+      "ssn_or_tax_id": "drop",
+      "date_of_birth": "generalize_dob_to_age_group",
+      "street_address": "drop",
+      "city": "pass_through",
+      "state": "pass_through",
+      "postal_code": "truncate_postal_code",
+      "country": "pass_through",
+      "registration_timestamp": "pass_through",
+      "risk_score": "derive_risk_tier"
+    },
+    "transactions": {
+      "transaction_id": "pass_through",
+      "customer_id": "hmac_token",
+      "transaction_timestamp": "derive_year_month",
+      "transaction_timestamp->transaction_year_month": "extract_year_month",
+      "amount": "pass_through",
+      "amount->amount_usd": "normalize_usd",
+      "currency": "pass_through",
+      "card_number": "partial_mask_card",
+      "ip_address": "mask_ip_subnet",
+      "merchant_category": "pass_through",
+      "status": "pass_through"
+    }
+  },
+  "source_checksums": {},
+  "target_checksums": {
+    "customers_parquet": "8f2c5086b116e53ab4db234591fc639db9d5b25464e395d3f7fcbcebcfacea64",
+    "transactions_parquet": "d5910d78355862641c4edf47b1b270bac94f670dc84421c55c0bb56ebdf7d5cc"
+  },
+  "reconciliation_status": "PASSED",
+  "failure_reason": null
+}
