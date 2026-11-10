@@ -39,6 +39,16 @@ This pipeline provides an end-to-end data engineering solution that:
 4. **Publishes a minimized analytical dataset** (Parquet, CSV, and SQLite) with zero raw PII leaks and joinable pseudonymized surrogate keys.
 5. **Maintains an immutable operational audit trail** with source-to-target reconciliation assertions, conservation math, and SHA-256 file checksums.
 
+### Primary Actors & Systems
+
+| Actor / System | Role & Responsibilities |
+| :--- | :--- |
+| **Data Engineer** | Authors schemas, configures masking policies (`masking_rules.yaml`), maintains pipeline modules, and defines reconciliation invariants. |
+| **Source System / Producer** | Upstream core banking, CRM, or checkout APIs emitting customer registration and financial transaction batches (JSON/CSV/Parquet). |
+| **Storage & Processing Layer** | Ingestion runtime, Pydantic validation engine, and dual storage targets: Parquet (columnar OLAP) and SQLite (relational store). |
+| **Target Analytical Consumer** | AI/ML practitioners, analytics engineers, and BI analysts querying privacy-safe datasets (`analytical_customers`, `analytical_transactions`) with joinable pseudonymized keys. |
+| **Pipeline Operator** | DevOps / DataOps personnel monitoring run IDs, execution duration, row conservation balances, quarantine rejection rates, and audit logs. |
+
 ---
 
 ## High-Level Architecture & Flow
